@@ -25,8 +25,11 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.save
+    if @user.update(user_params)
       redirect_to @user
+    else
+      # 保存に失敗した場合は編集画面へ戻す
+      render 'edit'
     end
   end
   
@@ -35,7 +38,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :email, :location, :description, :password,
                                  :password_confirmation)
