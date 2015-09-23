@@ -4939,3 +4939,290 @@ Processing by UsersController#show as HTML
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered layouts/_header.html.erb (1.6ms)
 Completed 200 OK in 185ms (Views: 183.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:24:25 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (25.3ms)
+Completed 200 OK in 406ms (Views: 404.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for 42.148.126.187 at 2015-09-23 11:24:28 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (31.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 210ms (Views: 209.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 42.148.126.187 at 2015-09-23 11:24:31 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ExQU8KDeDYda8tWwfoghv1nS2H4NSiSv7BQH3m4wRg1+FWv5lGBLHOkbEg7SM5WepywwQ994555Sah7FkU2vQ==", "session"=>{"email"=>"w_bird1216@yahoo.co.jp", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "w_bird1216@yahoo.co.jp"]]
+Redirected to https://techacademy-takahiro-shiratori-1.c9.io/users/1
+Completed 302 Found in 88ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 42.148.126.187 at 2015-09-23 11:24:32 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+Completed 200 OK in 151ms (Views: 148.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/edit" for 42.148.126.187 at 2015-09-23 11:24:35 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered shared/_error_messages.html.erb (3.0ms)
+  Rendered users/_form.html.erb (12.4ms)
+  Rendered users/edit.html.erb within layouts/application (13.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 186ms (Views: 184.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/1" for 42.148.126.187 at 2015-09-23 11:24:38 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtAKT7sQFD/Vu7E3yBVQN3Ydwio5dzqEaUyzHq/XH/unZA+zn8LtJbt0Fikyp77n8eY5is4/8YivtUt6wCroXg==", "user"=>{"name"=>"takahiro_shiratori", "email"=>"w_bird1216@yahoo.co.jp", "location"=>"仙台市", "description"=>"よろよろ", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('w_bird1216@yahoo.co.jp') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://techacademy-takahiro-shiratori-1.c9.io/users/1
+Completed 302 Found in 22ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 42.148.126.187 at 2015-09-23 11:24:38 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 203ms (Views: 201.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:25:24 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (38.2ms)
+Completed 200 OK in 448ms (Views: 445.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1/edit" for 42.148.126.187 at 2015-09-23 11:25:27 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered shared/_error_messages.html.erb (6.9ms)
+  Rendered users/_form.html.erb (41.4ms)
+  Rendered users/edit.html.erb within layouts/application (43.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 218ms (Views: 214.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1" for 42.148.126.187 at 2015-09-23 11:25:29 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x0zcHw+YNPUaL42cTEoaGMNTZDl0u9Ez3Nzo+2ZKmFEC+NnjK0rN73TgKoK2+PTIRKifmYPzGj8aJRCfCbdv9A==", "user"=>{"name"=>"takahiro_shiratori", "email"=>"w_bird1216@yahoo.co.jp", "location"=>"仙台市", "description"=>"よろよろ", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('w_bird1216@yahoo.co.jp') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://techacademy-takahiro-shiratori-1.c9.io/users/1
+Completed 302 Found in 19ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 42.148.126.187 at 2015-09-23 11:25:29 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 173ms (Views: 172.1ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMicroposts (20150923112544)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150923112544"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:33:41 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.2ms)
+  Rendered static_pages/home.html.erb within layouts/application (17.2ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (Missing partial shared/_micropost_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/workspace/microposts/app/views"
+):
+     5:         <%= render 'shared/user_info' %>
+     6:       </section>
+     7:       <section class="micropost_form">
+     8:         <%= render 'shared/micropost_form' %>
+     9:       </section>
+    10:     </aside>
+    11:   </div>
+  app/views/static_pages/home.html.erb:8:in `_app_views_static_pages_home_html_erb__412627289710980778_37346040'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.0ms)
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:35:16 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (4.0ms)
+  Rendered shared/_error_messages.html.erb (2.9ms)
+  Rendered shared/_micropost_form.html.erb (15.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (26.6ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 2722ms (Views: 2649.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/custom.self-1e40aa17462bf645bef3575d8e99b5335760ebf085592f9d659465fcbcf86740.css?body=1" for 42.148.126.187 at 2015-09-23 11:35:19 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 42.148.126.187 at 2015-09-23 11:35:19 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/microposts" for 42.148.126.187 at 2015-09-23 11:35:36 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fd0J+Hd7RXPmo93qLgX0fDFWPrwkvhQyQssKsflOqaa4aQwEU6m8aYhsevTUtxqstq3FHNP23z6EMvLVlrNeAw==", "micropost"=>{"content"=>"テスト投稿"}, "commit"=>"Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "テスト投稿"], ["user_id", 1], ["created_at", "2015-09-23 11:35:36.727863"], ["updated_at", "2015-09-23 11:35:36.727863"]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+Redirected to https://techacademy-takahiro-shiratori-1.c9.io/
+Completed 302 Found in 19ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:35:36 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.4ms)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered shared/_micropost_form.html.erb (1.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 186ms (Views: 183.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 42.148.126.187 at 2015-09-23 11:35:42 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 204ms (Views: 202.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 42.148.126.187 at 2015-09-23 11:38:57 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.8ms)
+  Rendered shared/_error_messages.html.erb (3.7ms)
+  Rendered shared/_micropost_form.html.erb (17.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (30.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 2579ms (Views: 2503.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/custom.self-af1814eb88ee6a51fda8510d56dccb353edfaaed41313c0f4eef5e259765ffc4.css?body=1" for 42.148.126.187 at 2015-09-23 11:39:00 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/1" for 42.148.126.187 at 2015-09-23 11:39:08 +0000
+Cannot render console from 42.148.126.187! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMicropost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (6.9ms)
+  Rendered users/show.html.erb within layouts/application (26.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 220ms (Views: 217.0ms | ActiveRecord: 0.9ms)
