@@ -15484,3 +15484,512 @@ Processing by UsersController#followings as HTML
   Rendered users/followings.html.erb within layouts/application (7.2ms)
   Rendered layouts/_header.html.erb (0.6ms)
 Completed 200 OK in 185ms (Views: 182.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 11:47:47 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered static_pages/home.html.erb within layouts/application (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 720ms (Views: 693.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 124.141.136.171 at 2015-09-30 11:47:50 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (31.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 308ms (Views: 307.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 124.141.136.171 at 2015-09-30 11:47:54 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6dWE63WJFUyZEEdVJ/EfqtpAsMMK5Yi3x3LhnIjjB1++hNRFlMmwjhgn1uZ9up3HLVikXmEKLKLMCeA7KbxiRQ==", "session"=>{"email"=>"w_bird1216@yahoo.co.jp", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "w_bird1216@yahoo.co.jp"]]
+Redirected to https://techacademy-takahiro-shiratori-1.c9.io/users/1
+Completed 302 Found in 97ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 11:47:55 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.6ms)
+  [1m[36mMicropost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (4.4ms)
+  Rendered users/show.html.erb within layouts/application (45.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 324ms (Views: 264.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:48:10 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?  [["follower_id", 1]]
+  Rendered users/_user.html.erb (2.9ms)
+  Rendered users/followings.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 228ms (Views: 225.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/followers" for 124.141.136.171 at 2015-09-30 11:48:15 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followers as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  Rendered users/_user.html.erb (0.4ms)
+  Rendered users/followers.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 199ms (Views: 196.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 124.141.136.171 at 2015-09-30 11:48:38 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 5]]
+  [1m[36mRelationship Load (0.3ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 5]]
+  Rendered users/_unfollow.html.erb (8.4ms)
+  Rendered users/_follow_form.html.erb (15.9ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (20.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 225ms (Views: 221.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:48:41 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/followings.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 213ms (Views: 211.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 11:51:48 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.6ms)
+  Rendered shared/_error_messages.html.erb (3.4ms)
+  Rendered shared/_micropost_form.html.erb (16.2ms)
+  Rendered static_pages/home.html.erb within layouts/application (33.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 545ms (Views: 460.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 11:51:51 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.5ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (8.4ms)
+  Rendered users/show.html.erb within layouts/application (35.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 248ms (Views: 221.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:51:55 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `followings_users' for #<User:0x007fb3cac05ac8>):
+  app/controllers/users_controller.rb:45:in `followings'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.7ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 11:53:09 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.5ms)
+  Rendered shared/_error_messages.html.erb (3.0ms)
+  Rendered shared/_micropost_form.html.erb (14.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (24.4ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 583ms (Views: 490.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 11:53:11 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.8ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (26.1ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    16:     <% if @user.microposts.any? %>
+    17:       <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    18:       <ol class="microposts">
+    19:         <%= render @users %>
+    20:       </ol>
+    21:     <% end %>
+    22:   </div>
+  app/views/users/show.html.erb:19:in `_app_views_users_show_html_erb__3859376592052062091_69912353769700'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.9ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 11:56:48 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (4.2ms)
+  Rendered shared/_error_messages.html.erb (3.3ms)
+  Rendered shared/_micropost_form.html.erb (14.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (26.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 621ms (Views: 525.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 11:56:51 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.8ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (30.0ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    16:     <% if @user.microposts.any? %>
+    17:       <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    18:       <ol class="microposts">
+    19:         <%= render @users %>
+    20:       </ol>
+    21:     <% end %>
+    22:   </div>
+  app/views/users/show.html.erb:19:in `_app_views_users_show_html_erb___2611756844494704955_69819407993080'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.1ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 11:57:13 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.4ms)
+  Rendered shared/_error_messages.html.erb (2.4ms)
+  Rendered shared/_micropost_form.html.erb (11.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (22.9ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 545ms (Views: 453.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 11:57:15 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.8ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (12.6ms)
+  Rendered users/show.html.erb within layouts/application (39.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 335ms (Views: 308.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:57:18 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Rendered users/_user.html.erb (2.9ms)
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/_user.html.erb (1.7ms)
+  Rendered users/followings.html.erb within layouts/application (25.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 210ms (Views: 206.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5" for 124.141.136.171 at 2015-09-30 11:57:29 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 5]]
+  [1m[36mRelationship Load (0.2ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 5]]
+  Rendered users/_unfollow.html.erb (6.7ms)
+  Rendered users/_follow_form.html.erb (11.3ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (14.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 216ms (Views: 213.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:57:31 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Rendered users/_user.html.erb (2.9ms)
+  Rendered users/_user.html.erb (2.7ms)
+  Rendered users/_user.html.erb (2.6ms)
+  Rendered users/_user.html.erb (2.6ms)
+  Rendered users/_user.html.erb (2.8ms)
+  Rendered users/_user.html.erb (2.7ms)
+  Rendered users/_user.html.erb (2.7ms)
+  Rendered users/followings.html.erb within layouts/application (30.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 244ms (Views: 241.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/followers" for 124.141.136.171 at 2015-09-30 11:57:40 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followers as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?  [["followed_id", 1]]
+  Rendered users/_user.html.erb (0.3ms)
+  Rendered users/followers.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 225ms (Views: 222.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/followers" for 124.141.136.171 at 2015-09-30 11:57:43 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followers as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  Rendered users/_user.html.erb (0.4ms)
+  Rendered users/followers.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 210ms (Views: 207.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 124.141.136.171 at 2015-09-30 11:57:44 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (1.9ms)
+  Rendered users/_follow_form.html.erb (4.4ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 194ms (Views: 191.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 11:57:49 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/_user.html.erb (9.9ms)
+  Rendered users/_user.html.erb (2.0ms)
+  Rendered users/_user.html.erb (1.9ms)
+  Rendered users/followings.html.erb within layouts/application (32.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 234ms (Views: 232.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 12:03:10 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.4ms)
+  Rendered shared/_error_messages.html.erb (2.5ms)
+  Rendered shared/_micropost_form.html.erb (12.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (22.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 531ms (Views: 464.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 12:03:12 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.7ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (8.1ms)
+  Rendered users/show.html.erb within layouts/application (31.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 419ms (Views: 390.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1/followers" for 124.141.136.171 at 2015-09-30 12:03:15 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followers as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  Rendered users/followers.html.erb within layouts/application (10.7ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    15:      <h3>Followers</h3> 
+    16: <ol class="followers">
+    17:   <% @followers.each do |follower_user| %>
+    18:     <%= render @followers_users %>
+    19:   <% end %>
+    20: </ol>
+    21:   </div>
+  app/views/users/followers.html.erb:18:in `block in _app_views_users_followers_html_erb___2191618350656877490_69820885894400'
+  app/views/users/followers.html.erb:17:in `_app_views_users_followers_html_erb___2191618350656877490_69820885894400'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.0ms)
+
+
+Started GET "/" for 124.141.136.171 at 2015-09-30 12:05:04 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (3.6ms)
+  Rendered shared/_error_messages.html.erb (3.0ms)
+  Rendered shared/_micropost_form.html.erb (15.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (25.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 502ms (Views: 435.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for 124.141.136.171 at 2015-09-30 12:05:07 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.7ms)
+  [1m[35mMicropost Exists (0.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (8.7ms)
+  Rendered users/show.html.erb within layouts/application (31.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 269ms (Views: 240.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/followings" for 124.141.136.171 at 2015-09-30 12:05:12 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Rendered users/_user.html.erb (2.8ms)
+  Rendered users/followings.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 208ms (Views: 206.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 124.141.136.171 at 2015-09-30 12:05:15 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  [1m[36mRelationship Load (0.3ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (9.2ms)
+  Rendered users/_follow_form.html.erb (14.9ms)
+  [1m[35mMicropost Exists (0.2ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (18.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 201ms (Views: 197.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2/followings" for 124.141.136.171 at 2015-09-30 12:05:17 +0000
+Cannot render console from 124.141.136.171! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#followings as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  Rendered users/_user.html.erb (0.5ms)
+  Rendered users/followings.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 235ms (Views: 232.5ms | ActiveRecord: 0.5ms)

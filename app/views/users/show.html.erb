@@ -7,8 +7,8 @@
       </h1>
     </section>
     
-    <%= link_to "Follow", followings_user_path(current_user) %><br>
-    <%= link_to "Follower", followers_user_path(current_user) %>
+    <%= link_to "Follow", followings_user_path(@user) %><br>
+    <%= link_to "Follower", followers_user_path(@user) %>
     
   </aside>
   <div class="col-md-8">
